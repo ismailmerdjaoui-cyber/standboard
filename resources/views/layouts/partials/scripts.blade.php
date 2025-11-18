@@ -27,9 +27,7 @@
 <script src="{{ asset('assets/libs/flatpickr/flatpickr.min.js') }}"></script>
 
 
-<!-- Custom-Switcher JS -->
-<script src="{{ asset('assets/js/custom-switcher.min.js') }}"></script>
-    <!-- Custom JS -->
-    <script src="{{ asset('assets/js/custom.js') }}"></script>
+<!-- Custom JS -->
+<script src="{{ asset('assets/js/custom.js') }}"></script>
 
-    @stack('scripts')
+@stack('scripts')
