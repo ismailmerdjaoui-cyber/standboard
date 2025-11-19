@@ -627,8 +627,8 @@
                                 </span>
                             </div>
                             <div>
-                                <span class="d-block fw-semibold lh-1">Tom Phillip</span>
-                                <span class="text-muted fs-12">tomphillip32@gmail.com</span>
+                                <span class="d-block fw-semibold lh-1">{{ Auth::user()->name }}</span>
+                                <span class="text-muted fs-12">{{ Auth::user()->email }}</span>
                             </div>
                         </div>
                     </div>
@@ -641,7 +641,8 @@
                                             class="ti ti-user-circle me-2 fs-18"></i>View Profile</a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item d-flex align-items-center" href="mail-settings.html"><i
+                                    <a class="dropdown-item d-flex align-items-center"
+                                        href="{{ route('account.settings') }}"><i
                                             class="ti ti-settings-cog me-2 fs-18"></i>Account Settings</a>
                                 </li>
                             </ul>
@@ -662,8 +663,15 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a class="dropdown-item d-flex align-items-center" href="sign-in-cover.html"><i
-                                    class="ti ti-logout me-2 fs-18"></i>Log Out</a></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <button type="submit"
+                                    class="dropdown-item d-flex align-items-center w-100 text-start border-0 bg-transparent">
+                                    <i class="ti ti-logout me-2 fs-18"></i>Log Out
+                                </button>
+                            </form>
+                        </li>
                     </ul>
                 </div>
             </li>
@@ -682,7 +690,8 @@
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
         <a href="index.html" class="header-logo">
-            <img src="{{ asset('assets/images/brand-logos/desktop-logo.png') }}" alt="logo" class="desktop-logo">
+            <img src="{{ asset('assets/images/brand-logos/desktop-logo.png') }}" alt="logo"
+                class="desktop-logo">
             <img src="{{ asset('assets/images/brand-logos/toggle-dark.png') }}" alt="logo" class="toggle-dark">
             <img src="{{ asset('assets/images/brand-logos/desktop-dark.png') }}" alt="logo"
                 class="desktop-dark">
