@@ -25,6 +25,9 @@ class ProfileUpdateRequest extends FormRequest
                 'max:255',
                 Rule::unique(User::class)->ignore($this->user()->id),
             ],
+            'theme' => ['required', 'string', 'in:light,dark'],
+            'language' => ['required', 'string', 'in:en,fr'],
+            'notifications_enabled' => ['nullable', 'boolean'],
         ];
     }
 }

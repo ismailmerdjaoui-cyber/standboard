@@ -10,15 +10,12 @@
             <!-- Start::header-element -->
             <div class="header-element">
                 <div class="horizontal-logo">
-                    <a href="index.html" class="header-logo">
-                        <img src="{{ asset('assets/images/brand-logos/desktop-logo.png') }}" alt="logo"
-                            class="desktop-logo">
-                        <img src="{{ asset('assets/images/brand-logos/toggle-logo.png') }}" alt="logo"
-                            class="toggle-logo">
-                        <img src="{{ asset('assets/images/brand-logos/desktop-dark.png') }}" alt="logo"
-                            class="desktop-dark">
-                        <img src="{{ asset('assets/images/brand-logos/toggle-dark.png') }}" alt="logo"
-                            class="toggle-dark">
+                    <a href="{{ route('dashboard') }}" class="header-logo">
+                        <span class="desktop-logo text-primary fw-bold fs-4">{{ config('app.name') }}</span>
+                        <span class="toggle-logo text-primary fw-bold fs-4">{{ substr(config('app.name'), 0, 1) }}</span>
+                        <span class="desktop-dark text-very-white fw-bold fs-4">{{ config('app.name') }}</span>
+                        <span
+                            class="toggle-dark text-very-white fw-bold fs-4">{{ substr(config('app.name'), 0, 1) }}</span>
                     </a>
                 </div>
             </div>
@@ -35,7 +32,7 @@
             <div class="header-element  header-search header-search-content d-md-block d-none">
                 <!-- Start::header-link -->
                 <input type="text" class="header-search-bar form-control bg-white" id="header-search"
-                    placeholder="Search" spellcheck=false autocomplete="off" autocapitalize="off">
+                    placeholder="{{ __('messages.search') }}" spellcheck=false autocomplete="off" autocapitalize="off">
                 <a href="javascript:void(0);" class="header-search-icon border-0">
                     <i class="bi bi-search fs-12 mb-1"></i>
                 </a>
@@ -67,34 +64,17 @@
             <!-- End::header-element -->
 
             <!-- Start::Lang -->
-            {{-- <li class="header-element country-selector dropdown d-sm-block d-none">
+            <li class="header-element country-selector dropdown d-sm-block d-none">
                 <!-- Start::header-link|dropdown-toggle -->
                 <a href="javascript:void(0);" class="header-link dropdown-toggle" data-bs-auto-close="outside"
                     data-bs-toggle="dropdown">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="header-link-icon" viewBox="0 0 256 256">
-                        <rect width="256" height="256" fill="none" />
-                        <path
-                            d="M215,168.71a96.42,96.42,0,0,1-30.54,37l-9.36-9.37a8,8,0,0,0-3.63-2.09L150,188.59a8,8,0,0,1-5.88-8.9l2.38-16.2a8,8,0,0,1,4.85-6.22l30.45-12.66a8,8,0,0,1,8.47,1.49Z"
-                            opacity="0.2" />
-                        <path
-                            d="M184,74a8,8,0,0,1-1.94,5.22L159.89,105a8,8,0,0,1-5,2.71l-31.46,4.26a8.06,8.06,0,0,1-5.77-1.45l-19.81-13a8,8,0,0,0-11.34,2l-20.94,31.3a8.06,8.06,0,0,0-1.35,4.41L64,171.49a8,8,0,0,1-3.61,6.64l-9.92,6.52A96,96,0,0,1,184,50Z"
-                            opacity="0.2" />
-                        <circle cx="128" cy="128" r="96" fill="none" stroke="currentColor"
-                            stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
-                        <path
-                            d="M184.42,205.68l-9.36-9.37a8,8,0,0,0-3.63-2.09L150,188.59a8,8,0,0,1-5.88-8.9l2.38-16.2a8,8,0,0,1,4.85-6.22l30.45-12.66a8,8,0,0,1,8.47,1.49L215,168.71"
-                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="16" />
-                        <path
-                            d="M50.49,184.65l9.92-6.52A8,8,0,0,0,64,171.49l.21-36.23a8.06,8.06,0,0,1,1.35-4.41l20.94-31.3a8,8,0,0,1,11.34-2l19.81,13a8.06,8.06,0,0,0,5.77,1.45l31.46-4.26a8,8,0,0,0,5-2.71L182.06,79.2A8,8,0,0,0,184,74V50"
-                            fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                            stroke-width="16" />
-                    </svg>
+                    <img src="{{ asset('assets/images/flags/' . (app()->getLocale() == 'en' ? 'us_flag.jpg' : 'french_flag.jpg')) }}"
+                        alt="img" class="header-link-icon rounded-circle">
                 </a>
                 <!-- End::header-link|dropdown-toggle -->
                 <ul class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('lang.switch', 'en') }}">
                             <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
                                 <img src="{{ asset('assets/images/flags/us_flag.jpg') }}" alt="img">
                             </span>
@@ -102,63 +82,15 @@
                         </a>
                     </li>
                     <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                            <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
-                                <img src="{{ asset('assets/images/flags/spain_flag.jpg') }}" alt="img">
-                            </span>
-                            español
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
+                        <a class="dropdown-item d-flex align-items-center" href="{{ route('lang.switch', 'fr') }}">
                             <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
                                 <img src="{{ asset('assets/images/flags/french_flag.jpg') }}" alt="img">
                             </span>
-                            français
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                            <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
-                                <img src="{{ asset('assets/images/flags/uae_flag.jpg') }}" alt="img">
-                            </span>
-                            عربي
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                            <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
-                                <img src="{{ asset('assets/images/flags/germany_flag.jpg') }}" alt="img">
-                            </span>
-                            Deutsch
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                            <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
-                                <img src="{{ asset('assets/images/flags/china_flag.jpg') }}" alt="img">
-                            </span>
-                            中国人
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                            <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
-                                <img src="{{ asset('assets/images/flags/italy_flag.jpg') }}" alt="img">
-                            </span>
-                            Italiano
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);">
-                            <span class="avatar avatar-rounded avatar-xs lh-1 me-2">
-                                <img src="{{ asset('assets/images/flags/russia_flag.jpg') }}" alt="img">
-                            </span>
-                            Русский
+                            Français
                         </a>
                     </li>
                 </ul>
-            </li> --}}
+            </li>
             <!-- End::Lang -->
 
             <!-- Start::Dark/Light -->
@@ -483,8 +415,9 @@
                 <div class="main-header-dropdown dropdown-menu dropdown-menu-end" data-popper-placement="none">
                     <div class="p-3 bg-primary text-fixed-white">
                         <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 fs-16">Notifications</p>
-                            <a href="javascript:void(0);" class="badge bg-light text-default border">Clear All</a>
+                            <p class="mb-0 fs-16">{{ __('messages.notifications') }}</p>
+                            <a href="javascript:void(0);"
+                                class="badge bg-light text-default border">{{ __('messages.clear_all') }}</a>
                         </div>
                     </div>
                     <div class="dropdown-divider"></div>
@@ -498,9 +431,9 @@
                                     </span>
                                 </div>
                                 <div class="flex-fill">
-                                    <span class="d-block fw-semibold">New Message</span>
-                                    <span class="d-block text-muted fs-12">You have received a new message from John
-                                        Doe</span>
+                                    <span class="d-block fw-semibold">{{ __('messages.new_message') }}</span>
+                                    <span
+                                        class="d-block text-muted fs-12">{{ __('messages.new_message_desc') }}</span>
                                 </div>
                                 <div class="text-end">
                                     <span class="d-block mb-1 fs-12 text-muted">11:45am</span>
@@ -518,9 +451,9 @@
                                     </span>
                                 </div>
                                 <div class="flex-fill">
-                                    <span class="d-block fw-semibold">Task Reminder</span>
-                                    <span class="d-block text-muted fs-12">Don't forget to submit your report by 3 PM
-                                        today</span>
+                                    <span class="d-block fw-semibold">{{ __('messages.task_reminder') }}</span>
+                                    <span
+                                        class="d-block text-muted fs-12">{{ __('messages.task_reminder_desc') }}</span>
                                 </div>
                                 <div class="text-end">
                                     <span class="d-block mb-1 fs-12 text-muted">02:16pm</span>
@@ -538,8 +471,9 @@
                                     </span>
                                 </div>
                                 <div class="flex-fill">
-                                    <span class="d-block fw-semibold">Friend Request</span>
-                                    <span class="d-block text-muted fs-12">Jane Smith sent you a friend request</span>
+                                    <span class="d-block fw-semibold">{{ __('messages.friend_request') }}</span>
+                                    <span
+                                        class="d-block text-muted fs-12">{{ __('messages.friend_request_desc') }}</span>
                                 </div>
                                 <div class="text-end">
                                     <span class="d-block mb-1 fs-12 text-muted">10:04am</span>
@@ -556,9 +490,9 @@
                                     </span>
                                 </div>
                                 <div class="flex-fill">
-                                    <span class="d-block fw-semibold">Event Reminder</span>
-                                    <span class="d-block text-muted fs-12">You have an upcoming event: Team Meeting on
-                                        October 25 at 10 AM.</span>
+                                    <span class="d-block fw-semibold">{{ __('messages.event_reminder') }}</span>
+                                    <span
+                                        class="d-block text-muted fs-12">{{ __('messages.event_reminder_desc') }}</span>
                                 </div>
                                 <div class="text-end">
                                     <span class="d-block mb-1 fs-12 text-muted">12:58pm</span>
@@ -575,9 +509,9 @@
                                     </span>
                                 </div>
                                 <div class="flex-fill">
-                                    <span class="d-block fw-semibold">File Uploaded</span>
-                                    <span class="d-block text-muted fs-12">The file "Project_Proposal.pdf" has been
-                                        uploaded successfully</span>
+                                    <span class="d-block fw-semibold">{{ __('messages.file_uploaded') }}</span>
+                                    <span
+                                        class="d-block text-muted fs-12">{{ __('messages.file_uploaded_desc') }}</span>
                                 </div>
                                 <div class="text-end">
                                     <span class="d-block mb-1 fs-12 text-muted">05:13pm</span>
@@ -591,7 +525,7 @@
                             <span class="avatar avatar-xl avatar-rounded bg-secondary-transparent">
                                 <i class="ri-notification-off-line fs-2"></i>
                             </span>
-                            <h6 class="fw-medium mt-3">No New Notifications</h6>
+                            <h6 class="fw-medium mt-3">{{ __('messages.no_new_notifications') }}</h6>
                         </div>
                     </div>
                 </div>
@@ -605,7 +539,8 @@
                 <a href="javascript:void(0);" class="header-link dropdown-toggle" id="mainHeaderProfile"
                     data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                     <div>
-                        <img src="{{ asset('assets/images/faces/12.jpg') }}" alt="img" class="header-link-icon">
+                        <img src="{{ asset('assets/images/faces/12.jpg') }}" alt="img"
+                            class="header-link-icon">
                     </div>
                 </a>
                 <!-- End::header-link|dropdown-toggle -->
@@ -613,7 +548,7 @@
                     aria-labelledby="mainHeaderProfile">
                     <div class="p-3 bg-primary text-fixed-white">
                         <div class="d-flex align-items-center justify-content-between">
-                            <p class="mb-0 fs-16">Profile</p>
+                            <p class="mb-0 fs-16">{{ __('messages.profile') }}</p>
                             <a href="javascript:void(0);" class="text-fixed-white"><i
                                     class="ti ti-settings-cog"></i></a>
                         </div>
@@ -638,12 +573,12 @@
                             <ul class="list-unstyled mb-0 sub-list">
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center" href="profile.html"><i
-                                            class="ti ti-user-circle me-2 fs-18"></i>View Profile</a>
+                                            class="ti ti-user-circle me-2 fs-18"></i>{{ __('messages.view_profile') }}</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center"
                                         href="{{ route('account.settings') }}"><i
-                                            class="ti ti-settings-cog me-2 fs-18"></i>Account Settings</a>
+                                            class="ti ti-settings-cog me-2 fs-18"></i>{{ __('messages.account_settings') }}</a>
                                 </li>
                             </ul>
                         </li>
@@ -651,15 +586,15 @@
                             <ul class="list-unstyled mb-0 sub-list">
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"><i
-                                            class="ti ti-lifebuoy me-2 fs-18"></i>Support</a>
+                                            class="ti ti-lifebuoy me-2 fs-18"></i>{{ __('messages.support') }}</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"><i
-                                            class="ti ti-bolt me-2 fs-18"></i>Activity Log</a>
+                                            class="ti ti-bolt me-2 fs-18"></i>{{ __('messages.activity_log') }}</a>
                                 </li>
                                 <li>
                                     <a class="dropdown-item d-flex align-items-center" href="javascript:void(0);"><i
-                                            class="ti ti-calendar me-2 fs-18"></i>Events</a>
+                                            class="ti ti-calendar me-2 fs-18"></i>{{ __('messages.events') }}</a>
                                 </li>
                             </ul>
                         </li>
@@ -668,7 +603,7 @@
                                 @csrf
                                 <button type="submit"
                                     class="dropdown-item d-flex align-items-center w-100 text-start border-0 bg-transparent">
-                                    <i class="ti ti-logout me-2 fs-18"></i>Log Out
+                                    <i class="ti ti-logout me-2 fs-18"></i>{{ __('messages.logout') }}
                                 </button>
                             </form>
                         </li>
@@ -689,13 +624,11 @@
 
     <!-- Start::main-sidebar-header -->
     <div class="main-sidebar-header">
-        <a href="index.html" class="header-logo">
-            <img src="{{ asset('assets/images/brand-logos/desktop-logo.png') }}" alt="logo"
-                class="desktop-logo">
-            <img src="{{ asset('assets/images/brand-logos/toggle-dark.png') }}" alt="logo" class="toggle-dark">
-            <img src="{{ asset('assets/images/brand-logos/desktop-dark.png') }}" alt="logo"
-                class="desktop-dark">
-            <img src="{{ asset('assets/images/brand-logos/toggle-logo.png') }}" alt="logo" class="toggle-logo">
+        <a href="{{ route('dashboard') }}" class="header-logo">
+            <span class="desktop-logo text-primary fw-bold fs-4">{{ config('app.name') }}</span>
+            <span class="toggle-dark text-very-white fw-bold fs-4">{{ substr(config('app.name'), 0, 1) }}</span>
+            <span class="desktop-dark text-very-white fw-bold fs-4">{{ config('app.name') }}</span>
+            <span class="toggle-logo text-primary fw-bold fs-4">{{ substr(config('app.name'), 0, 1) }}</span>
         </a>
     </div>
     <!-- End::main-sidebar-header -->

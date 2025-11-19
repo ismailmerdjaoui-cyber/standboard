@@ -1,3 +1,5 @@
+@vite(['resources/js/app.js'])
+
 <!-- Popper JS -->
 <script src="{{ asset('assets/libs/@popperjs/core/umd/popper.min.js') }}"></script>
 

@@ -25,4 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('userpreferences', \App\Http\Controllers\UserPreferenceController::class);
 });
 
+Route::get('lang/{locale}', function ($locale) {
+    if (in_array($locale, ['en', 'fr'])) {
+        session(['locale' => $locale]);
+    }
+    return redirect()->back();
+})->name('lang.switch');
+
 require __DIR__ . '/auth.php';

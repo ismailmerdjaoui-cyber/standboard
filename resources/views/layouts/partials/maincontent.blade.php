@@ -4,13 +4,13 @@
         <!-- Start::page-header -->
         <div class="page-header-breadcrumb mb-3">
             <div class="d-flex align-center justify-content-between flex-wrap">
-                <h1 class="page-title fw-medium fs-18 mb-0">@yield('page-title', 'Empty')</h1>
+                <h1 class="page-title fw-medium fs-18 mb-0">@yield('page-title', __('messages.empty'))</h1>
                 <ol class="breadcrumb mb-0">
                     @hasSection('breadcrumb')
                         @yield('breadcrumb')
                     @else
-                        <li class="breadcrumb-item"><a href="javascript:void(0);">Pages</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">@yield('page-title', 'Empty')</li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">{{ __('messages.pages') }}</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">@yield('page-title', __('messages.empty'))</li>
                     @endif
                 </ol>
             </div>

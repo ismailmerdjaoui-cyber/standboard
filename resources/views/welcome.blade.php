@@ -1,3 +1,3 @@
 @guest
-    <a href="{{ route('login') }}" class="btn-primary">Login</a>
+    <a href="{{ route('login') }}" class="btn-primary">{{ __('messages.login') }}</a>
 @endguest

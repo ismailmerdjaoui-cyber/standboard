@@ -1,0 +1,44 @@
+.notie-container {
+    top: 90px !important;
+    /* adjust to fit below header */
+    left: 90% !important;
+    transform: translateX(-50%);
+    width: 320px !important;
+    /* limit width */
+    border-radius: 6px !important;
+    z-index: 9999 !important;
+}
+
+/* Text & padding refinement */
+.notie-textbox {
+    font-size: 14px !important;
+    padding: 10px 14px !important;
+}
+
+/* Success color harmonized with Intelboardâ€™s palette */
+.notie-background-success {
+    background-color: #22c55e !important;
+    /* green but not overpowering */
+}
+
+/* âœ… Responsive fix for Notie position on mobile */
+@media (max-width: 768px) {
+    .notie-container {
+        top: 75px !important;
+        /* lower it a bit for smaller header */
+        left: 50% !important;
+        transform: translateX(-50%);
+        width: 90% !important;
+        /* use most of the screen width */
+        border-radius: 8px !important;
+    }
+
+    .notie-textbox {
+        font-size: 13px !important;
+        padding: 20px 10px !important;
+    }
+}
+
+.text-very-white {
+    color: #ffffff !important;
+}

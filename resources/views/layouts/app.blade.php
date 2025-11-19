@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}" dir="ltr" data-nav-layout="vertical" data-vertical-style="default"
-    data-page-style="modern" data-width="fullwidth" data-header-position="fixed" data-menu-position="fixed" loader="enable">
+    data-page-style="flat" data-nav-style="menu-click" data-width="fullwidth" data-header-position="fixed"
+    data-menu-position="fixed" loader="enable" data-theme-mode="{{ auth()->user()?->theme ?? 'light' }}">
 
 <head>
     @include('layouts.partials.styles')

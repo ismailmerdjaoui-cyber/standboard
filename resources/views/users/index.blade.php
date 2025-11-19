@@ -2,11 +2,11 @@
     <x-slot name="header">
         <div class="flex justify-between items-center">
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                {{ __('Users') }}
+                {{ __('messages.users') }}
             </h2>
             <a href="{{ route('users.create') }}"
                 class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                Create User
+                {{ __('messages.create_user') }}
             </a>
         </div>
     </x-slot>
@@ -24,10 +24,10 @@
                     <table class="min-w-full table-auto">
                         <thead>
                             <tr>
-                                <th class="px-4 py-2">ID</th>
-                                <th class="px-4 py-2">Name</th>
-                                <th class="px-4 py-2">Email</th>
-                                <th class="px-4 py-2">Actions</th>
+                                <th class="px-4 py-2">{{ __('messages.id') }}</th>
+                                <th class="px-4 py-2">{{ __('messages.name') }}</th>
+                                <th class="px-4 py-2">{{ __('messages.email') }}</th>
+                                <th class="px-4 py-2">{{ __('messages.actions') }}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,14 +37,16 @@
                                     <td class="border px-4 py-2">{{ $user->name }}</td>
                                     <td class="border px-4 py-2">{{ $user->email }}</td>
                                     <td class="border px-4 py-2">
-                                        <a href="{{ route('users.show', $user) }}" class="text-blue-500">View</a>
-                                        <a href="{{ route('users.edit', $user) }}" class="text-yellow-500 ml-2">Edit</a>
+                                        <a href="{{ route('users.show', $user) }}"
+                                            class="text-blue-500">{{ __('messages.view') }}</a>
+                                        <a href="{{ route('users.edit', $user) }}"
+                                            class="text-yellow-500 ml-2">{{ __('messages.edit') }}</a>
                                         <form action="{{ route('users.destroy', $user) }}" method="POST"
                                             class="inline ml-2">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="text-red-500"
-                                                onclick="return confirm('Are you sure?')">Delete</button>
+                                                onclick="return confirm('{{ __('messages.are_you_sure') }}')">{{ __('messages.delete') }}</button>
                                         </form>
                                     </td>
                                 </tr>

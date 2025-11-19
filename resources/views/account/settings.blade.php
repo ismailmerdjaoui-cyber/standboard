@@ -1,16 +1,21 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Account Settings') }}
-        </h2>
-    </x-slot>
+@extends('layouts.app')
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6">
+@section('title', __('messages.account_settings'))
+
+@section('page-title', __('messages.account_settings'))
+
+@section('breadcrumb')
+    <li class="breadcrumb-item"><a href="{{ url('/') }}">{{ __('messages.home') }}</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ __('messages.account_settings') }}</li>
+@endsection
+
+@section('content')
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card custom-card">
+                <div class="card-body">
                     @if (session('success'))
-                        <div class="mb-4 text-green-600">
+                        <div class="alert alert-success">
                             {{ session('success') }}
                         </div>
                     @endif
@@ -21,93 +26,117 @@
 
                         <!-- Name -->
                         <div class="mb-4">
-                            <x-input-label for="name" :value="__('Name')" />
-                            <x-text-input id="name" name="name" type="text" class="mt-1 block w-full"
-                                :value="old('name', auth()->user()->name)" required autofocus autocomplete="name" />
-                            <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                            <label for="name" class="form-label">{{ __('messages.name') }}</label>
+                            <input id="name" name="name" type="text" class="form-control"
+                                value="{{ old('name', auth()->user()->name) }}" required autofocus autocomplete="name" />
+                            @error('name')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!-- Email Address -->
                         <div class="mb-4">
-                            <x-input-label for="email" :value="__('Email')" />
-                            <x-text-input id="email" name="email" type="email" class="mt-1 block w-full"
-                                :value="old('email', auth()->user()->email)" required autocomplete="username" />
-                            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                            <label for="email" class="form-label">{{ __('messages.email') }}</label>
+                            <input id="email" name="email" type="email" class="form-control"
+                                value="{{ old('email', auth()->user()->email) }}" required autocomplete="username" />
+                            @error('email')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!-- Current Password -->
-                        <div class="mb-4" x-data="{ current_password: false }">
-                            <x-input-label for="current_password" :value="__('Current Password')" />
-                            <x-text-input id="current_password" name="current_password" type="password"
-                                class="mt-1 block w-full" autocomplete="current-password" />
-                            <x-input-error :messages="$errors->get('current_password')" class="mt-2" />
+                        <div class="mb-4">
+                            <label for="current_password" class="form-label">{{ __('messages.current_password') }}</label>
+                            <input id="current_password" name="current_password" type="password" class="form-control"
+                                autocomplete="current-password" />
+                            @error('current_password')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!-- Password -->
-                        <div class="mb-4" x-data="{ password: false }">
-                            <x-input-label for="password" :value="__('New Password')" />
-                            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full"
+                        <div class="mb-4">
+                            <label for="password" class="form-label">{{ __('messages.new_password') }}</label>
+                            <input id="password" name="password" type="password" class="form-control"
                                 autocomplete="new-password" />
-                            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                            @error('password')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <!-- Confirm Password -->
                         <div class="mb-4">
-                            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-                            <x-text-input id="password_confirmation" name="password_confirmation" type="password"
-                                class="mt-1 block w-full" autocomplete="new-password" />
-                            <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                            <label for="password_confirmation"
+                                class="form-label">{{ __('messages.confirm_password') }}</label>
+                            <input id="password_confirmation" name="password_confirmation" type="password"
+                                class="form-control" autocomplete="new-password" />
+                            @error('password_confirmation')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
-                        <div class="flex items-center gap-4">
-                            <x-primary-button>{{ __('Save') }}</x-primary-button>
-
-                            @if (session('status') === 'profile-updated')
-                                <p x-data="{ show: true }" x-show="show" x-transition x-init="setTimeout(() => show = false, 2000)"
-                                    class="text-sm text-gray-600">{{ __('Saved.') }}</p>
-                            @endif
-                        </div>
-                    </form>
-
-                    <hr class="my-6">
-
-                    <h3 class="text-lg font-semibold mb-4">{{ __('User Preferences') }}</h3>
-
-                    <!-- Current Preferences -->
-                    @if (auth()->user()->preferences->count() > 0)
+                        <!-- Language -->
                         <div class="mb-4">
-                            <h4 class="text-md font-medium mb-2">{{ __('Current Preferences') }}</h4>
-                            <ul class="list-disc list-inside space-y-1">
-                                @foreach (auth()->user()->preferences as $preference)
-                                    <li>{{ $preference->key }}:
-                                        {{ is_array($preference->value) ? json_encode($preference->value) : $preference->value }}
-                                    </li>
-                                @endforeach
-                            </ul>
+                            <label for="language" class="form-label">{{ __('messages.language') }}</label>
+                            <select id="language" name="language" class="form-control">
+                                <option value="en"
+                                    {{ old('language', auth()->user()->language) == 'en' ? 'selected' : '' }}>
+                                    {{ __('messages.english') }}</option>
+                                <option value="fr"
+                                    {{ old('language', auth()->user()->language) == 'fr' ? 'selected' : '' }}>
+                                    {{ __('messages.french') }}</option>
+                            </select>
+                            @error('language')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
-                    @endif
 
-                    <!-- Add New Preference -->
-                    <form method="POST" action="{{ route('userpreferences.store') }}">
-                        @csrf
-
+                        <!-- Theme -->
                         <div class="mb-4">
-                            <x-input-label for="key" :value="__('Preference Key')" />
-                            <x-text-input id="key" name="key" type="text" class="mt-1 block w-full"
-                                required />
-                            <x-input-error :messages="$errors->get('key')" class="mt-2" />
+                            <label for="theme" class="form-label">{{ __('messages.theme') }}</label>
+                            <select id="theme" name="theme" class="form-control">
+                                <option value="light"
+                                    {{ old('theme', auth()->user()->theme) == 'light' ? 'selected' : '' }}>
+                                    {{ __('messages.light') }}</option>
+                                <option value="dark"
+                                    {{ old('theme', auth()->user()->theme) == 'dark' ? 'selected' : '' }}>
+                                    {{ __('messages.dark') }}</option>
+                            </select>
+                            @error('theme')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
+                        <!-- Enable Notifications -->
                         <div class="mb-4">
-                            <x-input-label for="value" :value="__('Preference Value')" />
-                            <x-text-input id="value" name="value" type="text" class="mt-1 block w-full" />
-                            <x-input-error :messages="$errors->get('value')" class="mt-2" />
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="notifications_enabled"
+                                    name="notifications_enabled" value="1"
+                                    {{ old('notifications_enabled', auth()->user()->notifications_enabled) ? 'checked' : '' }}>
+                                <label class="form-check-label" for="notifications_enabled">
+                                    {{ __('messages.enable_notifications') }}
+                                </label>
+                            </div>
+                            @error('notifications_enabled')
+                                <div class="text-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
-                        <x-primary-button>{{ __('Add Preference') }}</x-primary-button>
+                        <button type="submit" class="btn btn-primary">{{ __('messages.save') }}</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</x-app-layout>
+@endsection
+
+@push('scripts')
+    @if (session('status') === 'profile-updated')
+        <script type="module">
+            notie.alert({
+                type: 'success',
+                text: '{{ __('messages.profile_updated_successfully') }}'
+            });
+        </script>
+    @endif
+@endpush

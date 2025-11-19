@@ -10,7 +10,7 @@
         </div>
         <ul class="main-menu">
             <!-- Start::slide__category -->
-            <li class="slide__category"><span class="category-name">Main</span></li>
+            <li class="slide__category"><span class="category-name">{{ __('messages.main') }}</span></li>
             <!-- End::slide__category -->
 
             <!-- Start::slide -->
@@ -31,12 +31,12 @@
                         <path d="M24,132.69l98.34-98.35a8,8,0,0,1,11.32,0L232,132.69" fill="none"
                             stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                     </svg>
-                    <span class="side-menu__label">Dashboards</span>
+                    <span class="side-menu__label">{{ __('messages.dashboards') }}</span>
                     <i class="ri-arrow-right-s-line side-menu__angle"></i>
                 </a>
                 <ul class="slide-menu child1">
                     <li class="slide side-menu__label1">
-                        <a href="javascript:void(0)">Dashboards</a>
+                        <a href="javascript:void(0)">{{ __('messages.dashboards') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index.html" class="side-menu__item">
@@ -58,7 +58,7 @@
                                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="16" />
                             </svg>
-                            Sales</a>
+                            {{ __('messages.sales') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-1.html" class="side-menu__item">
@@ -72,7 +72,7 @@
                                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="16" />
                             </svg>
-                            Analytics</a>
+                            {{ __('messages.analytics') }}</a>
                     </li>
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
@@ -85,36 +85,40 @@
                                     d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,160H40V56H216V200ZM176,88a48,48,0,0,1-96,0,8,8,0,0,1,16,0,32,32,0,0,0,64,0,8,8,0,0,1,16,0Z">
                                 </path>
                             </svg>
-                            Ecommerce<span class="badge bg-primary-transparent ms-2">9</span>
+                            {{ __('messages.ecommerce') }}<span class="badge bg-primary-transparent ms-2">9</span>
                             <i class="ri-arrow-right-s-line side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child2">
                             <li class="slide">
-                                <a href="index-2.html" class="side-menu__item">Dashboard</a>
+                                <a href="index-2.html" class="side-menu__item">{{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="products.html" class="side-menu__item">Products</a>
+                                <a href="products.html" class="side-menu__item">{{ __('messages.products') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="product-details.html" class="side-menu__item">Product Details</a>
+                                <a href="product-details.html"
+                                    class="side-menu__item">{{ __('messages.product_details') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="cart.html" class="side-menu__item">Cart</a>
+                                <a href="cart.html" class="side-menu__item">{{ __('messages.cart') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="checkout.html" class="side-menu__item">Checkout</a>
+                                <a href="checkout.html" class="side-menu__item">{{ __('messages.checkout') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="customers-list.html" class="side-menu__item">Customers</a>
+                                <a href="customers-list.html"
+                                    class="side-menu__item">{{ __('messages.customers') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="orders.html" class="side-menu__item">Orders</a>
+                                <a href="orders.html" class="side-menu__item">{{ __('messages.orders') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="orders-details.html" class="side-menu__item">Order Details</a>
+                                <a href="orders-details.html"
+                                    class="side-menu__item">{{ __('messages.order_details') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="add-product.html" class="side-menu__item">Add Product</a>
+                                <a href="add-product.html"
+                                    class="side-menu__item">{{ __('messages.add_product') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -133,27 +137,31 @@
                                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="16" />
                             </svg>
-                            Crypto<span class="badge bg-success-transparent ms-2">6</span>
+                            {{ __('messages.crypto') }}<span class="badge bg-success-transparent ms-2">6</span>
                             <i class="ri-arrow-right-s-line side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child2">
                             <li class="slide">
-                                <a href="index-4.html" class="side-menu__item">Dashboard</a>
+                                <a href="index-4.html" class="side-menu__item">{{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crypto-transactions.html" class="side-menu__item">Transactions</a>
+                                <a href="crypto-transactions.html"
+                                    class="side-menu__item">{{ __('messages.transactions') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crypto-currency-exchange.html" class="side-menu__item">Exchange</a>
+                                <a href="crypto-currency-exchange.html"
+                                    class="side-menu__item">{{ __('messages.exchange') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crypto-buy_sell.html" class="side-menu__item">Buy & Sell</a>
+                                <a href="crypto-buy_sell.html"
+                                    class="side-menu__item">{{ __('messages.buy_sell') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crypto-marketcap.html" class="side-menu__item">Marketcap</a>
+                                <a href="crypto-marketcap.html"
+                                    class="side-menu__item">{{ __('messages.marketcap') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crypto-wallet.html" class="side-menu__item">Wallet</a>
+                                <a href="crypto-wallet.html" class="side-menu__item">{{ __('messages.wallet') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -172,24 +180,25 @@
                                 <circle cx="128" cy="120" r="40" fill="none" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            CRM<span class="badge bg-warning-transparent ms-2">5</span>
+                            {{ __('messages.crm') }}<span class="badge bg-warning-transparent ms-2">5</span>
                             <i class="ri-arrow-right-s-line side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child2">
                             <li class="slide">
-                                <a href="index-3.html" class="side-menu__item">Dashboard</a>
+                                <a href="index-3.html" class="side-menu__item">{{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crm-contacts.html" class="side-menu__item">Contacts</a>
+                                <a href="crm-contacts.html" class="side-menu__item">{{ __('messages.contacts') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crm-companies.html" class="side-menu__item">Companies</a>
+                                <a href="crm-companies.html"
+                                    class="side-menu__item">{{ __('messages.companies') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crm-deals.html" class="side-menu__item">Deals</a>
+                                <a href="crm-deals.html" class="side-menu__item">{{ __('messages.deals') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="crm-leads.html" class="side-menu__item">Leads</a>
+                                <a href="crm-leads.html" class="side-menu__item">{{ __('messages.leads') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -206,21 +215,24 @@
                                     fill="none" stroke="currentColor" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            Projects<span class="badge bg-info-transparent ms-2">4</span>
+                            {{ __('messages.projects') }}<span class="badge bg-info-transparent ms-2">4</span>
                             <i class="ri-arrow-right-s-line side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child2">
                             <li class="slide">
-                                <a href="index-6.html" class="side-menu__item">Dashboard</a>
+                                <a href="index-6.html" class="side-menu__item">{{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="projects-list.html" class="side-menu__item">Projects List</a>
+                                <a href="projects-list.html"
+                                    class="side-menu__item">{{ __('messages.projects_list') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="projects-overview.html" class="side-menu__item">Project Overview</a>
+                                <a href="projects-overview.html"
+                                    class="side-menu__item">{{ __('messages.project_overview') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="projects-create.html" class="side-menu__item">Create Project</a>
+                                <a href="projects-create.html"
+                                    class="side-menu__item">{{ __('messages.create_project') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -240,7 +252,7 @@
                                 <path d="M57.78,216a72,72,0,0,1,140.44,0" fill="none" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            HRM</a>
+                            {{ __('messages.hrm') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-9.html" class="side-menu__item">
@@ -254,7 +266,7 @@
                                 <polyline points="48 216 48 224 192 224" fill="none" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            Courses</a>
+                            {{ __('messages.courses') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-10.html" class="side-menu__item">
@@ -269,7 +281,7 @@
                                 <polyline points="224 96 160 152 96 104 32 160" fill="none" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            Stocks</a>
+                            {{ __('messages.stocks') }}</a>
                     </li>
                     <li class="slide has-sub">
                         <a href="javascript:void(0);" class="side-menu__item">
@@ -291,27 +303,31 @@
                                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="16" />
                             </svg>
-                            NFT<span class="badge bg-danger-transparent ms-2">6</span>
+                            {{ __('messages.nft') }}<span class="badge bg-danger-transparent ms-2">6</span>
                             <i class="ri-arrow-right-s-line side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child2">
                             <li class="slide">
-                                <a href="index-5.html" class="side-menu__item">Dashboard</a>
+                                <a href="index-5.html" class="side-menu__item">{{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="nft-marketplace.html" class="side-menu__item">Market Place</a>
+                                <a href="nft-marketplace.html"
+                                    class="side-menu__item">{{ __('messages.market_place') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="nft-details.html" class="side-menu__item">NFT Details</a>
+                                <a href="nft-details.html"
+                                    class="side-menu__item">{{ __('messages.nft_details') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="nft-create.html" class="side-menu__item">Create NFT</a>
+                                <a href="nft-create.html" class="side-menu__item">{{ __('messages.create_nft') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="nft-wallet-integration.html" class="side-menu__item">Wallet Integration</a>
+                                <a href="nft-wallet-integration.html"
+                                    class="side-menu__item">{{ __('messages.wallet_integration') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="nft-live-auction.html" class="side-menu__item">Live Auction</a>
+                                <a href="nft-live-auction.html"
+                                    class="side-menu__item">{{ __('messages.live_auction') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -336,33 +352,38 @@
                                     fill="none" stroke="currentColor" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            Jobs<span class="badge bg-success-transparent ms-2">8</span>
+                            {{ __('messages.jobs') }}<span class="badge bg-success-transparent ms-2">8</span>
                             <i class="ri-arrow-right-s-line side-menu__angle"></i>
                         </a>
                         <ul class="slide-menu child2">
                             <li class="slide">
-                                <a href="index-7.html" class="side-menu__item">Dashboard</a>
+                                <a href="index-7.html" class="side-menu__item">{{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="job-details.html" class="side-menu__item">Job Details</a>
+                                <a href="job-details.html"
+                                    class="side-menu__item">{{ __('messages.job_details') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="job-company-search.html" class="side-menu__item">Search Company</a>
+                                <a href="job-company-search.html"
+                                    class="side-menu__item">{{ __('messages.search_company') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="job-search.html" class="side-menu__item">Search Jobs</a>
+                                <a href="job-search.html"
+                                    class="side-menu__item">{{ __('messages.search_jobs') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="job-post.html" class="side-menu__item">Job Post</a>
+                                <a href="job-post.html" class="side-menu__item">{{ __('messages.job_post') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="jobs-list.html" class="side-menu__item">Jobs List</a>
+                                <a href="jobs-list.html" class="side-menu__item">{{ __('messages.jobs_list') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="job-candidate-search.html" class="side-menu__item">Search Candidate</a>
+                                <a href="job-candidate-search.html"
+                                    class="side-menu__item">{{ __('messages.search_candidate') }}</a>
                             </li>
                             <li class="slide">
-                                <a href="job-candidate-details.html" class="side-menu__item">Candidate Details</a>
+                                <a href="job-candidate-details.html"
+                                    class="side-menu__item">{{ __('messages.candidate_details') }}</a>
                             </li>
                         </ul>
                     </li>
@@ -381,7 +402,7 @@
                                 <path d="M200,128a72,72,0,0,1-144,0" fill="none" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            Podcast</a>
+                            {{ __('messages.podcast') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-15.html" class="side-menu__item">
@@ -399,7 +420,7 @@
                                     fill="none" stroke="currentColor" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            Social Media</a>
+                            {{ __('messages.social_media') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-14.html" class="side-menu__item">
@@ -420,7 +441,7 @@
                                 <polyline points="64 200 64 80 192 80 192 136" fill="none" stroke="currentColor"
                                     stroke-linecap="round" stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            School</a>
+                            {{ __('messages.school') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-11.html" class="side-menu__item">
@@ -432,7 +453,7 @@
                                     stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                     stroke-width="16" />
                             </svg>
-                            Medical</a>
+                            {{ __('messages.medical') }}</a>
                     </li>
                     <li class="slide">
                         <a href="index-12.html" class="side-menu__item">
@@ -456,7 +477,7 @@
                                     fill="none" stroke="currentColor" stroke-linecap="round"
                                     stroke-linejoin="round" stroke-width="16" />
                             </svg>
-                            POS System</a>
+                            {{ __('messages.pos_system') }}</a>
                     </li>
                 </ul>
             </li>
@@ -484,7 +505,7 @@
                             fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                             stroke-width="16" />
                     </svg>
-                    <span class="side-menu__label">Widgets</span>
+                    <span class="side-menu__label">{{ __('messages.widgets') }}</span>
                 </a>
             </li>
             <!-- End::slide -->

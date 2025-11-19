@@ -1,7 +1,7 @@
 <!-- Footer Start -->
 <footer class="footer mt-auto py-3 text-center">
     <div class="container">
-        <span class="text-muted"> Copyright © <span id="year"></span> </span>
+        <span class="text-muted"> {{ __('messages.copyright') }} <span id="year"></span> </span>
     </div>
 </footer>
 <!-- Footer End -->
@@ -11,8 +11,9 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="input-group">
-                    <input type="text" class="form-control border-end-0" placeholder="Search Anything ..."
-                        aria-label="Search Anything ..." aria-describedby="button-addon2">
+                    <input type="text" class="form-control border-end-0"
+                        placeholder="{{ __('messages.search_anything') }}"
+                        aria-label="{{ __('messages.search_anything') }}" aria-describedby="button-addon2">
                     <button class="btn btn-primary" type="button" id="button-addon2"><i
                             class="bi bi-search"></i></button>
                 </div>
